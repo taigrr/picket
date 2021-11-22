@@ -16,18 +16,15 @@ ColorPickerWindow::ColorPickerWindow(BaseObjectType* cobject, const Glib::RefPtr
     screenWidth = defaultScreen->width;
     screenHeight = defaultScreen->height;
 
-    cout << "Screen: " << screenWidth << "x" << screenHeight << endl;
 
     string xdgSessionType = (string)getenv("XDG_SESSION_TYPE");
     if(xdgSessionType == "x11")
     {
         displayServer = DisplayServer::x11;
-        cout << "Display Server: x11" << endl;
     }
     else if(xdgSessionType == "wayland")
     {
         displayServer = DisplayServer::Wayland;
-        cout << "Display Server: Wayland" << endl;
     }
 
     SetFullscreen();
@@ -117,7 +114,6 @@ void ColorPickerWindow::TakeScreenshotFromXorg()
     auto pic = Gdk::Pixbuf::create_from_data(array, Gdk::Colorspace::COLORSPACE_RGB, false, 8, screenWidth, screenHeight, screenWidth*3);
     pic->copy_area(0,0,screenWidth, screenHeight, screenshot, outterBounds, outterBounds);
 
-    cout << "Xorg screenshot." << endl;
 }
 
 void ColorPickerWindow::TakeScreenshotFromWayland()
@@ -143,7 +139,6 @@ void ColorPickerWindow::TakeScreenshotFromWayland()
     Glib::RefPtr<Gdk::Pixbuf> pic = Gdk::Pixbuf::create_from_file(filename);
     pic->copy_area(0, 0, screenWidth, screenHeight, screenshot, outterBounds, outterBounds);
 
-    cout << "Wayland screenshot." << endl;
 }
 
 void ColorPickerWindow::SetFullscreen()

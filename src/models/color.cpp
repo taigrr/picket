@@ -131,8 +131,4 @@ map<string, string> Color::GetVariables()
 
 void Color::Log()
 {
-    cout << "Color" << endl;
-    cout << "Red: " << GetRed() << ", Green: " << GetGreen() << ", Blue: " << GetBlue() << endl;
-    cout << "Hue: " << GetHue() << "°, Saturation: " << GetSaturation() << "%, Lightness: " << GetLightness() << "%" << endl;
-    cout << "Cyan: " << GetCyan() << ", Magenta: " << GetMagenta() << ", Yellow: " << GetYellow() << ", Key: " << GetKey() << endl;
 }

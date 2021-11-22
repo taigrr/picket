@@ -169,18 +169,13 @@ string MainWindow::CreateFormat()
     colorFormatManager.SetVariables(color.GetVariables());
     string selectedFormat = formatComboBox->get_active_text();
     string format = colorFormatManager.GetFormat(selectedFormat);
-
+	
     return format;
 }
 
 void MainWindow::SaveConfiguration()
 {
     bool configurationSaved = config->SaveConfiguration();
-
-    if(configurationSaved)
-        cout << "Configuration saved!" << endl;
-    else
-        cout << "Error is saving configuration." << endl;
 }
 
 void MainWindow::SetApp(Glib::RefPtr<Gtk::Application> _app)
@@ -229,9 +224,11 @@ void MainWindow::Show(int response)
     if(response == Gtk::RESPONSE_ACCEPT)
     {
         if(config->ShouldQuitAfterPick())
+        {
             on_exitButton_clicked();
-        else
-            present();
+        }
+       // else
+            //present();
     }
     else if(response == Gtk::RESPONSE_CANCEL)
     {
@@ -575,14 +572,15 @@ void MainWindow::on_clipboardButton_clicked()
 {
     string format = CreateFormat();
 
-    Glib::RefPtr<Gtk::Clipboard> refClipboard = Gtk::Clipboard::get();
-    refClipboard->set_text(format);
+    //Glib::RefPtr<Gtk::Clipboard> refClipboard = Gtk::Clipboard::get();
+    //refClipboard->set_text(format);
 
     auto Icon = Gio::ThemedIcon::create("color-picker");
     auto Notification = Gio::Notification::create(format);
     Notification->set_body(formatComboBox->get_active_text());
-    Notification->set_icon (Icon);
-    app->send_notification(Notification);
+    //Notification->set_icon (Icon);
+	cout << format;
+    // app->send_notification(Notification);
 }
 
 void MainWindow::on_editButton_clicked()

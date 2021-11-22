@@ -28,7 +28,6 @@ void FormatEditWindow::SetFormat(string formats)
 {
     oldFormats = std::move(formats);
     formatTextBuffer->set_text(oldFormats);
-    cout << oldFormats << endl;
 }
 
 string FormatEditWindow::GetFormat()
