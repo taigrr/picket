@@ -180,12 +180,8 @@ bool ColorPickerWindow::on_my_motion_notify_event(GdkEventMotion* motion_event)
 bool ColorPickerWindow::on_my_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
     DrawScreenshot(cr);
-
     DrawMagnifier(cr);
-
-    if(config->ShouldDisplayColorInfoBox())
-        DrawColorInfoBox(cr);
-
+    DrawColorInfoBox(cr);
     return true;
 }
 
@@ -277,8 +273,8 @@ void ColorPickerWindow::DrawMagnifier(const Cairo::RefPtr<Cairo::Context>& cr)
     int magY = y+magOffset;
 
     // magnifier + info box
-    int magInfoWidth = (config->ShouldDisplayColorInfoBox() && infoWidth > magnifierSize) ? infoWidth : magnifierSize;
-    int magInfoHeight = config->ShouldDisplayColorInfoBox() ? magnifierSize + infoHeight: magnifierSize;
+    int magInfoWidth = (infoWidth > magnifierSize) ? infoWidth : magnifierSize;
+    int magInfoHeight = magnifierSize + infoHeight;
 
     if((magX+magInfoWidth/2) > screenWidth)
     {

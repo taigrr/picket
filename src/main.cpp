@@ -48,10 +48,7 @@ int main(int argc, char *argv[])
     settingsWindow->SetConfig(config);
     window->SetSettingsWindow(settingsWindow);
 
-    if(config->ShouldStartImmediatePick())
-        app->run(*colorPickerWindow);
-    else
-        app->run(*window);
+    app->run(*colorPickerWindow);
 
     delete window;
     delete settingsWindow;
