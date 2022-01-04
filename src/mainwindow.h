@@ -27,7 +27,7 @@ private:
 
     string CreateFormat();
     void SaveConfiguration();
-    ColorFormatManager colorFormatManager = ColorFormatManager((string)getenv("HOME")+"/.picket/formats");
+    ColorFormatManager colorFormatManager = ColorFormatManager((string)getenv("HOME")+"/.config/picket/formats");
 
     sigc::connection redScaleSignal;
     sigc::connection greenScaleSignal;

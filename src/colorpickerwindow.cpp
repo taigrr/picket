@@ -121,7 +121,7 @@ void ColorPickerWindow::TakeScreenshotFromWayland()
     screenshot = Gdk::Pixbuf::create(Gdk::COLORSPACE_RGB, true, 8, screenWidth+outterBounds*2, screenHeight+outterBounds*2);
 
     string filename = (string)getenv("HOME");
-    filename.append("/.picket/screenshot.png");
+    filename.append("/.config/picket/screenshot.png");
 
     Glib::RefPtr<Gio::DBus::Connection> connection = app->get_dbus_connection();
 

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     ColorPickerWindow *colorPickerWindow;
     SettingsWindow *settingsWindow;
     FormatEditWindow *formatEditWindow;
-    string userDirectory = (string)getenv("HOME")+"/.picket";
+    string userDirectory = (string)getenv("HOME")+"/.config/picket";
 
     if(!DirUtilities::DirectoryExists(userDirectory))
         DirUtilities::CreateUserDirectory(userDirectory);

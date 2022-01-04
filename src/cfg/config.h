@@ -23,7 +23,7 @@ private:
 
     int pixelSize = 8;
     int pixelsPerRow = 13;
-    string filePath = (string)getenv("HOME")+"/.picket/config.ini";
+    string filePath = (string)getenv("HOME")+"/.config/picket/config.ini";
 
     string Get(string section, string name, string default_value);
     long GetInteger(string section, string name, long default_value);
